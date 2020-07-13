@@ -1,0 +1,14 @@
+.display-none {
+    display: none;
+}
+
+.icon-thumbnail {
+    position: absolute;
+    margin-left: -9px;
+    margin-top: -6px;
+    font-size: 16px;
+}
+
+ion-thumbnail {
+    --border-radius: 5px;
+}

@@ -1,0 +1,56 @@
+<div class="drawer-toolbar">
+  <ion-toolbar>
+    <ion-buttons slot="start" (click)="onClose()">
+      <ion-icon slot="icon-only" name="close"></ion-icon>
+    </ion-buttons>
+    <ion-title>
+      Anotación
+    </ion-title>
+    <ion-buttons slot="end">
+      <ion-button (click)="onSave()" [disabled]="!form.valid">
+        <ion-text color="primary">Guardar</ion-text>
+      </ion-button>
+    </ion-buttons>
+  </ion-toolbar>
+</div>
+<div class="drawer-body" [formGroup]="form">
+  <ion-item>
+    <ion-label>Motivo</ion-label>
+    <ion-select placeholder="Disponibles..." formControlName="tipoincidenciaid">
+      <ion-select-option *ngFor="let item of tipoIncidencia" [value]="item.tipoincidenciaid">
+        {{item.descripcion}}
+      </ion-select-option>
+    </ion-select>
+  </ion-item>
+  <ion-item>
+    <ion-label>Gravedad</ion-label>
+    <ion-select placeholder="Seleccionar..." formControlName="nivelgravedadid">
+      <ion-select-option *ngFor="let item of gravedad" [value]="item.nivelgravedadid">
+        {{item.descripcion}}
+      </ion-select-option>
+    </ion-select>
+  </ion-item>
+  <ion-item>
+    <ion-textarea placeholder="Breve descripción..." formControlName="descripcion"></ion-textarea>
+  </ion-item>
+  <ion-item>
+    <ion-thumbnail (click)="selectImage()" size="4" *ngIf="form.get('imagenes').value.length <= 4">
+      <img src="https://gravatar.com/avatar/dba6bae8c566f9d4041fb9cd9ada7741?d=identicon&f=y">
+    </ion-thumbnail>
+    <ion-col size="2" *ngFor="let imagen of form.get('imagenes').value; let i = index">
+      <ion-icon name="close-circle-outline" color="danger" (click)="deletePhoto(i)" class="icon-thumbnail">
+      </ion-icon>
+      <ion-thumbnail size="4">
+        <img [src]="imagen">
+      </ion-thumbnail>
+    </ion-col>
+  </ion-item>
+  <ion-item>
+    <ion-label>Fecha</ion-label>
+    <ion-datetime displayFormat="D de MMM, YYYY" formControlName="fecha"></ion-datetime>
+  </ion-item>
+  <ion-item>
+    <ion-label>Hora</ion-label>
+    <ion-datetime displayFormat="HH:mm" formControlName="fecha"></ion-datetime>
+  </ion-item>
+</div>

@@ -1,0 +1,50 @@
+<div class="drawer-toolbar">
+  <ion-toolbar>
+    <ion-buttons slot="start" (click)="onAbonoClose()">
+      <ion-icon slot="icon-only" name="close"></ion-icon>
+    </ion-buttons>
+    <ion-title>
+      Fertilización
+    </ion-title>
+    <ion-buttons slot="end">
+      <ion-button>
+        <ion-text color="primary">Guardar</ion-text>
+      </ion-button>
+    </ion-buttons>
+  </ion-toolbar>
+</div>
+<div class="drawer-body">
+  <ion-item>
+    <ion-label>Receta</ion-label>
+    <ion-select placeholder="Disponibles...">
+      <ion-select-option value="1">Cochinilla blanca</ion-select-option>
+      <ion-select-option value="2">Antracnosis</ion-select-option>
+      <ion-select-option value="3">Contra repilo</ion-select-option>
+    </ion-select>
+  </ion-item>
+  <ion-item>
+    <ion-chip outline color="primary">
+      <ion-icon name="flask" color="primary"></ion-icon>
+      <ion-label>Añadir producto</ion-label>
+    </ion-chip>
+  </ion-item>
+  <ion-item>
+    <ion-textarea placeholder="Otras observaciones..." rows="4"></ion-textarea>
+  </ion-item>
+  <ion-item>
+    <ion-label>Fecha inicio</ion-label>
+    <ion-datetime displayFormat="D de MMM, YYYY" value="2002-09-23T15:03:46.789"></ion-datetime>
+  </ion-item>
+  <ion-item>
+    <ion-label>Dias disponible</ion-label>
+    <ion-input inputmode="numeric" class="ion-text-end"></ion-input>
+  </ion-item>
+  <ion-item>
+    <ion-label>Dias reentrada</ion-label>
+    <ion-input inputmode="numeric" class="ion-text-end"></ion-input>
+  </ion-item>
+  <ion-item>
+    <ion-label>Nivel ph</ion-label>
+    <ion-input inputmode="decimal" class="ion-text-end"></ion-input>
+  </ion-item>
+</div>

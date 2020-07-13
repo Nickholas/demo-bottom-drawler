@@ -1,0 +1,79 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-back-button [defaultHref]="defaultHref"></ion-back-button>
+    </ion-buttons>
+    <ion-title class="ion-text-center">
+      Visita técnica
+    </ion-title>
+    <ion-buttons slot="end">
+      <ion-button>
+        <ion-icon slot="icon-only" name="checkmark"></ion-icon>
+      </ion-button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <div id="mapId" style="width: 100%; height: 100%">
+  </div>
+</ion-content>
+
+<ion-bottom-drawer [(state)]="State" [minimumHeight]="0" [dockedHeight]="dockedheight" [shouldBounce]="true" [distanceTop]="distancetop"
+  class="z-index">
+  <div class="drawer-content">
+    <app-nota (close)="onClose($event)" *ngIf="tipoModal === 1"></app-nota>
+    <app-plaga (close)="onClose($event)" *ngIf="tipoModal === 2"></app-plaga>
+    <app-abono (close)="onClose($event)" *ngIf="tipoModal === 3"></app-abono>
+    <app-labor (close)="onClose($event)" *ngIf="tipoModal === 4"></app-labor>
+  </div>
+</ion-bottom-drawer>
+
+<ion-tabs>
+  <ion-tab-bar slot="bottom">
+    <ion-tab-button>
+      <ion-icon name="clipboard" color="secondary"></ion-icon>
+      <ion-label color="secondary">Nota</ion-label>
+    </ion-tab-button>
+
+    <ion-tab-button>
+      <ion-icon name="bug" color="secondary"></ion-icon>
+      <ion-label color="secondary">Plaga</ion-label>
+    </ion-tab-button>
+
+    <ion-tab-button>
+      <!-- <ion-icon name="cog" color="secondary"></ion-icon>
+        <ion-label color="secondary">Settings</ion-label> -->
+    </ion-tab-button>
+
+    <ion-tab-button>
+      <ion-icon name="flask" color="secondary"></ion-icon>
+      <ion-label color="secondary">Abono</ion-label>
+    </ion-tab-button>
+
+    <ion-tab-button>
+      <ion-icon name="hand" color="secondary"></ion-icon>
+      <ion-label color="secondary">Labor</ion-label>
+    </ion-tab-button>
+  </ion-tab-bar>
+
+</ion-tabs>
+<ion-fab vertical="bottom" horizontal="center" slot="fixed">
+  <ion-fab-button color="primary">
+    <ion-icon name="Home"></ion-icon>
+  </ion-fab-button>
+  <ion-fab-list side="top">
+    <ion-fab-button color="primary" (click)="onShow(4)">
+      <ion-icon name="hand"></ion-icon>
+    </ion-fab-button>
+    <ion-fab-button color="primary" (click)="onShow(3)">
+      <ion-icon name="flask"></ion-icon>
+    </ion-fab-button>
+    <ion-fab-button color="primary" (click)="onShow(2)">
+      <ion-icon name="bug"></ion-icon>
+    </ion-fab-button>
+    <ion-fab-button color="primary" (click)="onShow(1)">
+      <ion-icon name="clipboard"></ion-icon>
+    </ion-fab-button>
+  </ion-fab-list>
+</ion-fab>
